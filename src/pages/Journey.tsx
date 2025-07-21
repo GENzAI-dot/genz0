@@ -44,8 +44,8 @@ const Journey = ({ onLogout }: JourneyProps) => {
               <iframe
                 src="https://www.chatbase.co/chatbot-iframe/0LyxIVLG8qQrARNER-DBW"
                 width="100%"
-                style={{ height: '100%', border: 'none' }}
-                title="AstroAI Spiritual Guide Chatbot"
+                style={{ height: '100%', minHeight: '700px' }}
+                frameBorder="0"
               />
             </div>
           </div>
