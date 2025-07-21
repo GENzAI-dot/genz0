@@ -1,13 +1,8 @@
-import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import AuthForm from "@/components/AuthForm";
 import cosmicHero from "@/assets/cosmic-hero.jpg";
 
-interface HomeProps {
-  onAuth: () => void;
-}
-
-const Home = ({ onAuth }: HomeProps) => {
+const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-ethereal">
       <Navbar />
@@ -45,7 +40,7 @@ const Home = ({ onAuth }: HomeProps) => {
           
           {/* Auth Form */}
           <div className="flex items-center justify-center">
-            <AuthForm onAuth={onAuth} />
+            <AuthForm />
           </div>
         </div>
         

@@ -1,13 +1,12 @@
 import Navbar from "@/components/Navbar";
+import { useAuth } from "@/hooks/useAuth";
 
-interface JourneyProps {
-  onLogout: () => void;
-}
-
-const Journey = ({ onLogout }: JourneyProps) => {
+const Journey = () => {
+  const { signOut } = useAuth();
+  
   return (
     <div className="min-h-screen bg-gradient-ethereal">
-      <Navbar showLogout onLogout={onLogout} />
+      <Navbar showLogout onLogout={signOut} />
       
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto">
@@ -39,13 +38,15 @@ const Journey = ({ onLogout }: JourneyProps) => {
               </div>
             </div>
             
-            {/* Embedded Chatbot */}
+            {/* Embedded Chatbot - Enhanced Security */}
             <div className="relative" style={{ height: '700px' }}>
               <iframe
                 src="https://www.chatbase.co/chatbot-iframe/0LyxIVLG8qQrARNER-DBW"
                 width="100%"
                 style={{ height: '100%', minHeight: '700px' }}
                 frameBorder="0"
+                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+                title="AstroAI Spiritual Guide Chatbot"
               />
             </div>
           </div>
