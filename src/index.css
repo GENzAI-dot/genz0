@@ -1,15 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* AstroAI Spiritual Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
+    /* Core cosmic colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 240 10% 3.9%;
+    
+    /* Spiritual color palette */
+    --cosmic-purple: 260 60% 20%;
+    --cosmic-purple-light: 260 50% 40%;
+    --celestial-gold: 45 90% 60%;
+    --celestial-gold-light: 45 100% 75%;
+    --ethereal-blue: 220 70% 50%;
+    --ethereal-blue-light: 220 60% 70%;
+    --mystical-white: 0 0% 98%;
+    --spirit-gray: 240 5% 96%;
+    
+    /* Gradients */
+    --gradient-cosmic: linear-gradient(135deg, hsl(260 60% 20%), hsl(220 70% 50%));
+    --gradient-celestial: linear-gradient(135deg, hsl(45 90% 60%), hsl(45 100% 75%));
+    --gradient-ethereal: linear-gradient(180deg, hsl(0 0% 100%), hsl(240 5% 96%));
+    --gradient-mystical: linear-gradient(135deg, hsl(260 50% 40%), hsl(45 90% 60%));
+    
+    /* Shadows and glows */
+    --shadow-cosmic: 0 20px 50px -10px hsl(260 60% 20% / 0.3);
+    --shadow-celestial: 0 10px 30px -5px hsl(45 90% 60% / 0.2);
+    --glow-mystical: 0 0 40px hsl(260 50% 40% / 0.4);
+    
+    /* Animations */
+    --transition-mystical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -17,17 +42,18 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Spiritual semantic tokens */
+    --primary: 260 60% 20%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 90% 60%;
+    --secondary-foreground: 260 60% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 10% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 70% 50%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -100,6 +126,37 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-poppins;
+  }
+}
+
+@layer components {
+  /* Spiritual button variants */
+  .btn-cosmic {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground 
+           shadow-[var(--shadow-cosmic)] hover:shadow-[var(--glow-mystical)]
+           transition-[var(--transition-mystical)] transform hover:scale-105;
+  }
+  
+  .btn-celestial {
+    @apply bg-gradient-to-r from-secondary to-[hsl(var(--celestial-gold-light))] 
+           text-secondary-foreground shadow-[var(--shadow-celestial)]
+           transition-[var(--transition-mystical)] hover:brightness-110;
+  }
+  
+  /* Mystical cards */
+  .card-mystical {
+    @apply bg-gradient-to-br from-background to-muted backdrop-blur-sm
+           border border-border/50 shadow-[var(--shadow-cosmic)]
+           transition-[var(--transition-mystical)] hover:shadow-[var(--glow-mystical)];
+  }
+  
+  /* Ethereal text effects */
+  .text-gradient-cosmic {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-celestial {
+    @apply bg-gradient-to-r from-secondary to-[hsl(var(--celestial-gold-light))] bg-clip-text text-transparent;
   }
 }

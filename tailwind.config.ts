@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				poppins: ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,7 +64,40 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Spiritual color extensions
+				cosmic: {
+					purple: 'hsl(var(--cosmic-purple))',
+					'purple-light': 'hsl(var(--cosmic-purple-light))',
+				},
+				celestial: {
+					gold: 'hsl(var(--celestial-gold))',
+					'gold-light': 'hsl(var(--celestial-gold-light))',
+				},
+				ethereal: {
+					blue: 'hsl(var(--ethereal-blue))',
+					'blue-light': 'hsl(var(--ethereal-blue-light))',
+				},
+				mystical: {
+					white: 'hsl(var(--mystical-white))',
+				},
+				spirit: {
+					gray: 'hsl(var(--spirit-gray))',
 				}
+			},
+			backgroundImage: {
+				'gradient-cosmic': 'var(--gradient-cosmic)',
+				'gradient-celestial': 'var(--gradient-celestial)',
+				'gradient-ethereal': 'var(--gradient-ethereal)',
+				'gradient-mystical': 'var(--gradient-mystical)',
+			},
+			boxShadow: {
+				'cosmic': 'var(--shadow-cosmic)',
+				'celestial': 'var(--shadow-celestial)',
+				'glow': 'var(--glow-mystical)',
+			},
+			transitionTimingFunction: {
+				'mystical': 'cubic-bezier(0.4, 0, 0.2, 1)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

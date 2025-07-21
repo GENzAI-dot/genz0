@@ -1,0 +1,115 @@
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Navbar from "@/components/Navbar";
+import { Sparkles, Star, Moon, Sun } from "lucide-react";
+
+interface DashboardProps {
+  onLogout: () => void;
+}
+
+const Dashboard = ({ onLogout }: DashboardProps) => {
+  const navigate = useNavigate();
+
+  const handleStartJourney = () => {
+    navigate("/journey");
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-ethereal">
+      <Navbar showLogout onLogout={onLogout} />
+      
+      <main className="container mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto space-y-12">
+          {/* Welcome Section */}
+          <div className="text-center space-y-6">
+            <div className="inline-flex items-center space-x-2 bg-muted/50 px-4 py-2 rounded-full">
+              <Sparkles className="h-5 w-5 text-secondary" />
+              <span className="text-sm font-medium text-muted-foreground">
+                Your spiritual guide awaits
+              </span>
+            </div>
+            
+            <h1 className="text-4xl lg:text-5xl font-bold text-gradient-cosmic">
+              Welcome to AstroAI – Your 24/7 AI Pandit and Spiritual Guide
+            </h1>
+            
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              AstroAI is an innovative spiritual-tech platform that guides users in astrology, 
+              pujas, mantras, emotional and spiritual well-being using AI-powered voice and 
+              visual experiences. Begin your journey of self-discovery and cosmic connection.
+            </p>
+          </div>
+          
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <Card className="card-mystical text-center">
+              <CardHeader>
+                <div className="w-12 h-12 bg-gradient-cosmic rounded-lg mx-auto flex items-center justify-center mb-2">
+                  <Star className="h-6 w-6 text-primary-foreground" />
+                </div>
+                <CardTitle className="text-gradient-cosmic">Astrology Insights</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Personalized astrological readings and cosmic guidance based on ancient wisdom
+                </CardDescription>
+              </CardContent>
+            </Card>
+            
+            <Card className="card-mystical text-center">
+              <CardHeader>
+                <div className="w-12 h-12 bg-gradient-celestial rounded-lg mx-auto flex items-center justify-center mb-2">
+                  <Moon className="h-6 w-6 text-secondary-foreground" />
+                </div>
+                <CardTitle className="text-gradient-celestial">Sacred Mantras</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Curated mantras and spiritual practices for meditation and inner peace
+                </CardDescription>
+              </CardContent>
+            </Card>
+            
+            <Card className="card-mystical text-center">
+              <CardHeader>
+                <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg mx-auto flex items-center justify-center mb-2">
+                  <Sun className="h-6 w-6 text-primary-foreground" />
+                </div>
+                <CardTitle className="text-gradient-cosmic">Spiritual Wellness</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Emotional healing and spiritual growth through AI-guided experiences
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* CTA Section */}
+          <div className="text-center space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-2xl font-semibold text-gradient-mystical">
+                Ready to Connect with Your Higher Self?
+              </h2>
+              <p className="text-muted-foreground">
+                Experience personalized spiritual guidance powered by advanced AI technology
+              </p>
+            </div>
+            
+            <Button
+              onClick={handleStartJourney}
+              size="lg"
+              className="btn-cosmic text-lg px-8 py-6 h-auto"
+            >
+              <Sparkles className="mr-2 h-5 w-5" />
+              Start Your Journey
+            </Button>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default Dashboard;
