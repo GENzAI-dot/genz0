@@ -28,7 +28,7 @@ const Journey = () => {
                   <span className="text-primary-foreground text-sm">✦</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gradient-cosmic">AstroAI Spiritual Guide</h3>
+                  <h3 className="font-semibold text-gradient-cosmic">genZ Spiritual Guide</h3>
                   <p className="text-sm text-muted-foreground">Your personal AI pandit</p>
                 </div>
                 <div className="ml-auto flex items-center space-x-2">
@@ -46,7 +46,7 @@ const Journey = () => {
                 style={{ height: '100%', minHeight: '700px' }}
                 frameBorder="0"
                 sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                title="AstroAI Spiritual Guide Chatbot"
+                title="genZ Spiritual Guide Chatbot"
               />
             </div>
           </div>

@@ -29,11 +29,11 @@ const Dashboard = () => {
             </div>
             
             <h1 className="text-4xl lg:text-5xl font-bold text-gradient-cosmic animate-fade-in-up [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
-              Welcome to AstroAI – Your 24/7 AI Pandit and Spiritual Guide
+              Welcome to genZ – Your 24/7 AI Pandit and Spiritual Guide
             </h1>
             
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up [animation-delay:0.4s] opacity-0 [animation-fill-mode:forwards]">
-              AstroAI is an innovative spiritual-tech platform that guides users in astrology, 
+              genZ is an innovative spiritual-tech platform that guides users in astrology, 
               pujas, mantras, emotional and spiritual well-being using AI-powered voice and 
               visual experiences. Begin your journey of self-discovery and cosmic connection.
             </p>

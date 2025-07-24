@@ -14,7 +14,7 @@ const Navbar = ({ showLogout = false, onLogout }: NavbarProps) => {
           <div className="w-8 h-8 bg-gradient-mystical rounded-lg flex items-center justify-center">
             <span className="text-primary-foreground font-bold text-lg">✦</span>
           </div>
-          <h1 className="text-2xl font-bold text-gradient-cosmic">AstroAI</h1>
+          <h1 className="text-2xl font-bold text-gradient-cosmic">genZ</h1>
         </div>
         
         {showLogout && (
