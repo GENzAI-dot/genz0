@@ -20,19 +20,19 @@ const Dashboard = () => {
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Welcome Section */}
-          <div className="text-center space-y-6">
-            <div className="inline-flex items-center space-x-2 bg-muted/50 px-4 py-2 rounded-full">
-              <Sparkles className="h-5 w-5 text-secondary" />
+          <div className="text-center space-y-6 animate-fade-in">
+            <div className="inline-flex items-center space-x-2 bg-muted/50 px-4 py-2 rounded-full animate-float hover:bg-muted/70 transition-colors">
+              <Sparkles className="h-5 w-5 text-secondary animate-cosmic-pulse" />
               <span className="text-sm font-medium text-muted-foreground">
                 Your spiritual guide awaits
               </span>
             </div>
             
-            <h1 className="text-4xl lg:text-5xl font-bold text-gradient-cosmic">
+            <h1 className="text-4xl lg:text-5xl font-bold text-gradient-cosmic animate-fade-in-up [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
               Welcome to AstroAI – Your 24/7 AI Pandit and Spiritual Guide
             </h1>
             
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up [animation-delay:0.4s] opacity-0 [animation-fill-mode:forwards]">
               AstroAI is an innovative spiritual-tech platform that guides users in astrology, 
               pujas, mantras, emotional and spiritual well-being using AI-powered voice and 
               visual experiences. Begin your journey of self-discovery and cosmic connection.
@@ -41,10 +41,10 @@ const Dashboard = () => {
           
           {/* Features Grid */}
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="card-mystical text-center">
+            <Card className="card-mystical text-center animate-scale-in [animation-delay:0.6s] opacity-0 [animation-fill-mode:forwards] hover:scale-105 transition-transform duration-300 group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-cosmic rounded-lg mx-auto flex items-center justify-center mb-2">
-                  <Star className="h-6 w-6 text-primary-foreground" />
+                <div className="w-12 h-12 bg-gradient-cosmic rounded-lg mx-auto flex items-center justify-center mb-2 group-hover:animate-float">
+                  <Star className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform" />
                 </div>
                 <CardTitle className="text-gradient-cosmic">Astrology Insights</CardTitle>
               </CardHeader>
@@ -55,10 +55,10 @@ const Dashboard = () => {
               </CardContent>
             </Card>
             
-            <Card className="card-mystical text-center">
+            <Card className="card-mystical text-center animate-scale-in [animation-delay:0.8s] opacity-0 [animation-fill-mode:forwards] hover:scale-105 transition-transform duration-300 group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-celestial rounded-lg mx-auto flex items-center justify-center mb-2">
-                  <Moon className="h-6 w-6 text-secondary-foreground" />
+                <div className="w-12 h-12 bg-gradient-celestial rounded-lg mx-auto flex items-center justify-center mb-2 group-hover:animate-float [animation-delay:0.5s]">
+                  <Moon className="h-6 w-6 text-secondary-foreground group-hover:scale-110 transition-transform" />
                 </div>
                 <CardTitle className="text-gradient-celestial">Sacred Mantras</CardTitle>
               </CardHeader>
@@ -69,10 +69,10 @@ const Dashboard = () => {
               </CardContent>
             </Card>
             
-            <Card className="card-mystical text-center">
+            <Card className="card-mystical text-center animate-scale-in [animation-delay:1s] opacity-0 [animation-fill-mode:forwards] hover:scale-105 transition-transform duration-300 group">
               <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg mx-auto flex items-center justify-center mb-2">
-                  <Sun className="h-6 w-6 text-primary-foreground" />
+                <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg mx-auto flex items-center justify-center mb-2 group-hover:animate-float [animation-delay:1s]">
+                  <Sun className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform" />
                 </div>
                 <CardTitle className="text-gradient-cosmic">Spiritual Wellness</CardTitle>
               </CardHeader>
@@ -85,7 +85,7 @@ const Dashboard = () => {
           </div>
           
           {/* CTA Section */}
-          <div className="text-center space-y-8">
+          <div className="text-center space-y-8 animate-fade-in-up [animation-delay:1.2s] opacity-0 [animation-fill-mode:forwards]">
             <div className="space-y-4">
               <h2 className="text-2xl font-semibold text-gradient-mystical">
                 Ready to Connect with Your Higher Self?
@@ -98,9 +98,9 @@ const Dashboard = () => {
             <Button
               onClick={handleStartJourney}
               size="lg"
-              className="btn-cosmic text-lg px-8 py-6 h-auto"
+              className="btn-cosmic text-lg px-8 py-6 h-auto hover:animate-cosmic-pulse transition-all duration-300 group"
             >
-              <Sparkles className="mr-2 h-5 w-5" />
+              <Sparkles className="mr-2 h-5 w-5 group-hover:animate-spin" />
               Start Your Journey
             </Button>
           </div>

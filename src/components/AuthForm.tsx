@@ -86,18 +86,18 @@ const AuthForm = () => {
   return (
     <div className="w-full max-w-md mx-auto">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 mb-6">
-          <TabsTrigger value="login">Login</TabsTrigger>
-          <TabsTrigger value="signup">Sign Up</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 mb-6 animate-scale-in">
+          <TabsTrigger value="login" className="transition-all duration-300 hover:scale-105">Login</TabsTrigger>
+          <TabsTrigger value="signup" className="transition-all duration-300 hover:scale-105">Sign Up</TabsTrigger>
         </TabsList>
         
         <TabsContent value="login">
-          <Card className="card-mystical">
+          <Card className="card-mystical animate-fade-in hover:shadow-[var(--glow-mystical)] transition-all duration-500">
             <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl text-center text-gradient-cosmic">
+              <CardTitle className="text-2xl text-center text-gradient-cosmic animate-shimmer bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text">
                 Welcome Back
               </CardTitle>
-              <CardDescription className="text-center text-muted-foreground">
+              <CardDescription className="text-center text-muted-foreground animate-fade-in [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
                 Continue your spiritual journey
               </CardDescription>
             </CardHeader>
@@ -149,10 +149,17 @@ const AuthForm = () => {
               <CardFooter>
                 <Button
                   type="submit"
-                  className="w-full btn-cosmic"
+                  className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group"
                   disabled={loading}
                 >
-                  {loading ? "Signing in..." : "Sign In"}
+                  {loading ? (
+                    <span className="flex items-center">
+                      <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
+                      Signing in...
+                    </span>
+                  ) : (
+                    "Sign In"
+                  )}
                 </Button>
               </CardFooter>
             </form>
@@ -160,12 +167,12 @@ const AuthForm = () => {
         </TabsContent>
         
         <TabsContent value="signup">
-          <Card className="card-mystical">
+          <Card className="card-mystical animate-fade-in hover:shadow-[var(--glow-mystical)] transition-all duration-500">
             <CardHeader className="space-y-1">
-              <CardTitle className="text-2xl text-center text-gradient-cosmic">
+              <CardTitle className="text-2xl text-center text-gradient-cosmic animate-shimmer bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text">
                 Begin Your Journey
               </CardTitle>
-              <CardDescription className="text-center text-muted-foreground">
+              <CardDescription className="text-center text-muted-foreground animate-fade-in [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
                 Create your spiritual profile
               </CardDescription>
             </CardHeader>
@@ -253,10 +260,17 @@ const AuthForm = () => {
               <CardFooter>
                 <Button
                   type="submit"
-                  className="w-full btn-cosmic"
+                  className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group"
                   disabled={loading}
                 >
-                  {loading ? "Creating account..." : "Create Account"}
+                  {loading ? (
+                    <span className="flex items-center">
+                      <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
+                      Creating account...
+                    </span>
+                  ) : (
+                    "Create Account"
+                  )}
                 </Button>
               </CardFooter>
             </form>
