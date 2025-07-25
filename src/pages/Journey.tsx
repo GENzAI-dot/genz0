@@ -41,13 +41,11 @@ const Journey = () => {
             {/* Embedded Chatbot - Enhanced Security */}
             <div className="relative" style={{ height: '700px' }}>
               <iframe
-                src="https://www.chatbase.co/chatbot-iframe/0LyxIVLG8qQrARNER-DBW"
+                src="https://www.chatbase.co/chatbot-iframe/J1brsJAro53hG6YCh2KqW"
                 width="100%"
                 style={{ height: '100%', minHeight: '700px' }}
                 frameBorder="0"
-                sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-                title="genZ Spiritual Guide Chatbot"
-              />
+              ></iframe>
             </div>
           </div>
           
