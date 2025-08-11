@@ -21,9 +21,7 @@ const Dashboard = () => {
           <div className="text-center space-y-6 animate-fade-in">
             <div className="inline-flex items-center space-x-2 bg-muted/50 px-4 py-2 rounded-full animate-float hover:bg-muted/70 transition-colors">
               <Sparkles className="h-5 w-5 text-secondary animate-cosmic-pulse" />
-              <span className="text-sm font-medium text-muted-foreground">
-                Your spiritual guide awaits
-              </span>
+              <span className="text-sm font-medium text-muted-foreground">Your AI  Edge</span>
             </div>
             
             <h1 className="text-4xl lg:text-5xl font-bold text-gradient-cosmic animate-fade-in-up [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
