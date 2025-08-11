@@ -21,8 +21,8 @@ const Home = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-lg animate-fade-in-up [animation-delay:0.6s] opacity-0 [animation-fill-mode:forwards]">
-                Experience the fusion of ancient wisdom and cutting-edge AI. 
-                Your 24/7 digital pandit for astrology, mantras, and spiritual guidance.
+                genZ Modern Mind Care Through AI Experience AI-powered guidance for mental wellness, academic stress, and student life challenges.
+                Your 24/7 digital mentor for managing anxiety, improving focus, and finding balance in a fast-paced world.
               </p>
             </div>
             
