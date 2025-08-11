@@ -4,17 +4,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Navbar from "@/components/Navbar";
 import { Sparkles, Star, Moon, Sun } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-
 const Dashboard = () => {
-  const { signOut } = useAuth();
+  const {
+    signOut
+  } = useAuth();
   const navigate = useNavigate();
-
   const handleStartJourney = () => {
     navigate("/journey");
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-ethereal">
+  return <div className="min-h-screen bg-gradient-ethereal">
       <Navbar showLogout onLogout={signOut} />
       
       <main className="container mx-auto px-4 py-12">
@@ -44,12 +42,14 @@ const Dashboard = () => {
                 <div className="w-12 h-12 bg-gradient-cosmic rounded-lg mx-auto flex items-center justify-center mb-2 group-hover:animate-float">
                   <Star className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform" />
                 </div>
-                <CardTitle className="text-gradient-cosmic">Astrology Insights</CardTitle>
+                <CardTitle className="text-gradient-cosmic">Study & Exam Insights
+
+              </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
-                  Personalized astrological readings and cosmic guidance based on ancient wisdom
-                </CardDescription>
+                <CardDescription>Personalized study tips, learning techniques, and academic strategies to improve performance and reduce exam stress.
+
+              </CardDescription>
               </CardContent>
             </Card>
             
@@ -58,12 +58,14 @@ const Dashboard = () => {
                 <div className="w-12 h-12 bg-gradient-celestial rounded-lg mx-auto flex items-center justify-center mb-2 group-hover:animate-float [animation-delay:0.5s]">
                   <Moon className="h-6 w-6 text-secondary-foreground group-hover:scale-110 transition-transform" />
                 </div>
-                <CardTitle className="text-gradient-celestial">Sacred Mantras</CardTitle>
+                <CardTitle className="text-gradient-celestial">Focus & Motivation Boosters
+
+              </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
-                  Curated mantras and spiritual practices for meditation and inner peace
-                </CardDescription>
+                <CardDescription>Quick exercises, goal-setting tools, and mood-lifting activities to help you stay on track and energized.
+
+              </CardDescription>
               </CardContent>
             </Card>
             
@@ -72,12 +74,12 @@ const Dashboard = () => {
                 <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-lg mx-auto flex items-center justify-center mb-2 group-hover:animate-float [animation-delay:1s]">
                   <Sun className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform" />
                 </div>
-                <CardTitle className="text-gradient-cosmic">Spiritual Wellness</CardTitle>
+                <CardTitle className="text-gradient-cosmic">Mental Wellness Hub
+
+              </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>
-                  Emotional healing and spiritual growth through AI-guided experiences
-                </CardDescription>
+                <CardDescription>AI-guided coping techniques for stress, anxiety, and burnout, plus practical advice for a healthier mind.</CardDescription>
               </CardContent>
             </Card>
           </div>
@@ -93,19 +95,13 @@ const Dashboard = () => {
               </p>
             </div>
             
-            <Button
-              onClick={handleStartJourney}
-              size="lg"
-              className="btn-cosmic text-lg px-8 py-6 h-auto hover:animate-cosmic-pulse transition-all duration-300 group"
-            >
+            <Button onClick={handleStartJourney} size="lg" className="btn-cosmic text-lg px-8 py-6 h-auto hover:animate-cosmic-pulse transition-all duration-300 group">
               <Sparkles className="mr-2 h-5 w-5 group-hover:animate-spin" />
               Start Your Journey
             </Button>
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default Dashboard;
