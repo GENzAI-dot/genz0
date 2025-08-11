@@ -33,9 +33,7 @@ const Dashboard = () => {
             </h1>
             
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up [animation-delay:0.4s] opacity-0 [animation-fill-mode:forwards]">
-              genZ is an innovative spiritual-tech platform that guides users in astrology, 
-              pujas, mantras, emotional and spiritual well-being using AI-powered voice and 
-              visual experiences. Begin your journey of self-discovery and cosmic connection.
+              genZ is a modern AI-powered life support platform built for today’s students and young adults. Get instant help for academic stress, mental wellness, career doubts, and personal growth — all in one place. From study hacks to mood boosters, our AI mentor is here 24/7 to guide, motivate, and help you thrive in every area of life
             </p>
           </div>
           
