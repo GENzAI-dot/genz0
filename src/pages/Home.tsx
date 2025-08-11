@@ -13,7 +13,7 @@ const Home = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                Modern Mind Care
+                <span className="text-gradient-cosmic animate-shimmer bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text">Modern Mind Care</span>
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-lg animate-fade-in-up [animation-delay:0.6s] opacity-0 [animation-fill-mode:forwards]">
