@@ -1,11 +1,10 @@
 import Navbar from "@/components/Navbar";
 import { useAuth } from "@/hooks/useAuth";
-
 const Journey = () => {
-  const { signOut } = useAuth();
-  
-  return (
-    <div className="min-h-screen bg-gradient-ethereal">
+  const {
+    signOut
+  } = useAuth();
+  return <div className="min-h-screen bg-gradient-ethereal">
       <Navbar showLogout onLogout={signOut} />
       
       <main className="container mx-auto px-4 py-8">
@@ -15,9 +14,7 @@ const Journey = () => {
             <h1 className="text-3xl lg:text-4xl font-bold text-gradient-cosmic">
               Your Mind Upgrade Starts Here
             </h1>
-            <p className="text-lg text-muted-foreground">
-              Connect with your AI spiritual guide for personalized wisdom and guidance
-            </p>
+            <p className="text-lg text-muted-foreground">"AI-powered guidance for your mind, goals, and daily hustle"</p>
           </div>
           
           {/* Chatbot Container */}
@@ -28,8 +25,8 @@ const Journey = () => {
                   <span className="text-primary-foreground text-sm">✦</span>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gradient-cosmic">genZ Spiritual Guide</h3>
-                  <p className="text-sm text-muted-foreground">Your personal AI pandit</p>
+                  <h3 className="font-semibold text-gradient-cosmic">genZ</h3>
+                  <p className="text-sm text-muted-foreground">Your personal AI Mentor</p>
                 </div>
                 <div className="ml-auto flex items-center space-x-2">
                   <div className="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
@@ -39,13 +36,13 @@ const Journey = () => {
             </div>
             
             {/* Embedded Chatbot - Enhanced Security */}
-            <div className="relative" style={{ height: '700px' }}>
-              <iframe
-                src="https://www.chatbase.co/chatbot-iframe/J1brsJAro53hG6YCh2KqW"
-                width="100%"
-                style={{ height: '100%', minHeight: '700px' }}
-                frameBorder="0"
-              ></iframe>
+            <div className="relative" style={{
+            height: '700px'
+          }}>
+              <iframe src="https://www.chatbase.co/chatbot-iframe/J1brsJAro53hG6YCh2KqW" width="100%" style={{
+              height: '100%',
+              minHeight: '700px'
+            }} frameBorder="0"></iframe>
             </div>
           </div>
           
@@ -58,8 +55,6 @@ const Journey = () => {
           </div>
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default Journey;
