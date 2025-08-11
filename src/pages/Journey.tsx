@@ -13,7 +13,7 @@ const Journey = () => {
           {/* Header */}
           <div className="text-center space-y-4 mb-8">
             <h1 className="text-3xl lg:text-4xl font-bold text-gradient-cosmic">
-              Your Spiritual Journey Begins
+              Your Mind Upgrade Starts Here
             </h1>
             <p className="text-lg text-muted-foreground">
               Connect with your AI spiritual guide for personalized wisdom and guidance
