@@ -91,7 +91,7 @@ const Dashboard = () => {
                 Ready to Connect with Your Higher Self?
               </h2>
               <p className="text-muted-foreground">
-                Experience personalized spiritual guidance powered by advanced AI technology
+                AI magic
               </p>
             </div>
             
