@@ -132,7 +132,7 @@ const AuthForm = () => {
                 Begin Your Journey
               </CardTitle>
               <CardDescription className="text-center text-muted-foreground animate-fade-in [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
-                Create your spiritual profile
+                Your Journey , Your Profile
               </CardDescription>
             </CardHeader>
             <form onSubmit={handleSubmit}>
