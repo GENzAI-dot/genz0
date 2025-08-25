@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import AuthForm from "@/components/AuthForm";
+import AdSense from "@/components/AdSense";
 import cosmicHero from "@/assets/cosmic-hero.jpg";
 const Home = () => {
   return <div className="min-h-screen bg-gradient-ethereal">
@@ -36,6 +37,11 @@ const Home = () => {
           <div className="flex items-center justify-center animate-scale-in [animation-delay:1s] opacity-0 [animation-fill-mode:forwards]">
             <AuthForm />
           </div>
+        </div>
+        
+        {/* AdSense Ad */}
+        <div className="mt-12 flex justify-center animate-fade-in-up [animation-delay:1.1s] opacity-0 [animation-fill-mode:forwards]">
+          <AdSense adSlot="6287173687" className="w-full max-w-4xl" />
         </div>
         
         {/* Hero Image */}
