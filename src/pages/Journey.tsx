@@ -39,10 +39,12 @@ const Journey = () => {
             <div className="relative" style={{
             height: '700px'
           }}>
-              <iframe src="https://www.chatbase.co/chatbot-iframe/J1brsJAro53hG6YCh2KqW" width="100%" style={{
-              height: '100%',
-              minHeight: '700px'
-            }} frameBorder="0"></iframe>
+              <iframe
+                src="https://www.chatbase.co/chatbot-iframe/dD2UdH0OD16_2Bq0JfqPI"
+                width="100%"
+                style={{ height: '100%', minHeight: '700px' }}
+                frameBorder="0"
+              ></iframe>
             </div>
           </div>
           
