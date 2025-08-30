@@ -134,8 +134,43 @@
   /* Spiritual button variants */
   .btn-cosmic {
     @apply bg-gradient-to-r from-primary to-accent text-primary-foreground 
-           shadow-[var(--shadow-cosmic)] hover:shadow-[var(--glow-mystical)]
-           transition-[var(--transition-mystical)] transform hover:scale-105;
+           shadow-[var(--shadow-cosmic)] relative overflow-hidden
+           transition-all duration-300 ease-out;
+  }
+  
+  .btn-cosmic:hover {
+    @apply shadow-[var(--glow-mystical)] scale-105;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+  
+  .btn-cosmic:active {
+    @apply scale-95;
+  }
+  
+  /* Ripple effect */
+  .btn-cosmic::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease-out, height 0.6s ease-out;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .btn-cosmic:active::after {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .btn-cosmic > * {
+    position: relative;
+    z-index: 1;
   }
   
   .btn-celestial {
