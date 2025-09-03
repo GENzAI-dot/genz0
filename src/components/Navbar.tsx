@@ -1,5 +1,11 @@
-import { LogOut } from "lucide-react";
+import { LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface NavbarProps {
   showLogout?: boolean;
@@ -18,15 +24,24 @@ const Navbar = ({ showLogout = false, onLogout }: NavbarProps) => {
         </div>
         
         {showLogout && (
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={onLogout}
-            className="hover:bg-muted transition-colors"
-          >
-            <LogOut className="h-4 w-4 mr-2" />
-            Logout
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                size="sm"
+                className="hover:bg-muted transition-colors"
+              >
+                <User className="h-4 w-4 mr-2" />
+                Profile
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-48">
+              <DropdownMenuItem onClick={onLogout} className="cursor-pointer">
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         )}
       </div>
     </nav>
