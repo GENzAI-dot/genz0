@@ -105,17 +105,10 @@ const Dashboard = () => {
               <h2 className="text-xl font-semibold text-gradient-celestial">
                 Need Help Getting Started?
               </h2>
-              <p className="text-muted-foreground">
-                Get instant support and guidance from our help center
-              </p>
+              
             </div>
             
-            <Button 
-              onClick={() => window.open('https://www.chatbase.co/dD2UdH0OD16_2Bq0JfqPI/help', '_blank')} 
-              variant="outline" 
-              size="lg" 
-              className="text-lg px-8 py-6 h-auto border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 group"
-            >
+            <Button onClick={() => window.open('https://www.chatbase.co/dD2UdH0OD16_2Bq0JfqPI/help', '_blank')} variant="outline" size="lg" className="text-lg px-8 py-6 h-auto border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 group">
               <HelpCircle className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
               Get Help & Support
             </Button>
