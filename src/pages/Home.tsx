@@ -2,9 +2,23 @@ import Navbar from "@/components/Navbar";
 import AuthForm from "@/components/AuthForm";
 import AdSense from "@/components/AdSense";
 import BlurText from "@/components/BlurText";
+import Cubes from "@/components/Cubes";
 import cosmicHero from "@/assets/cosmic-hero.jpg";
 const Home = () => {
-  return <div className="min-h-screen bg-gradient-ethereal">
+  return <div className="min-h-screen bg-gradient-ethereal relative overflow-hidden">
+      {/* Cubes Background Animation */}
+      <Cubes 
+        gridSize={8}
+        cubeSize={40}
+        maxAngle={20}
+        radius={2}
+        cellGap={8}
+        faceColor="rgba(6, 0, 16, 0.1)"
+        borderStyle="1px solid rgba(255, 255, 255, 0.1)"
+        rippleColor="rgba(255, 255, 255, 0.3)"
+        autoAnimate={true}
+      />
+      
       <Navbar />
       
       <main className="container mx-auto px-4 py-12">
