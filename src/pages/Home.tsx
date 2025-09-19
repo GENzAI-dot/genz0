@@ -4,7 +4,7 @@ import AdSense from "@/components/AdSense";
 import BlurText from "@/components/BlurText";
 import cosmicHero from "@/assets/cosmic-hero.jpg";
 const Home = () => {
-  return <div className="min-h-screen bg-gradient-ethereal relative overflow-hidden">
+  return <div className="min-h-screen bg-gradient-ethereal">
       <Navbar />
       
       <main className="container mx-auto px-4 py-12">
@@ -12,14 +12,12 @@ const Home = () => {
           {/* Hero Content */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
-                <BlurText 
-                  text="Modern Mind Care"
-                  className="text-gradient-cosmic bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text"
-                  delay={150}
-                  animateBy="words"
-                />
-              </h1>
+              <BlurText 
+                text="Modern Mind Care"
+                className="text-5xl lg:text-6xl font-bold leading-tight text-gradient-cosmic bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text"
+                delay={150}
+                animateBy="words"
+              />
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-lg animate-fade-in-up [animation-delay:0.6s] opacity-0 [animation-fill-mode:forwards]">
                 genZ Modern Mind Care Through AI Experience AI-powered guidance for mental wellness, academic stress, and student life challenges.
