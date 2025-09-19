@@ -2,23 +2,6 @@ import { useCallback, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './Cubes.css';
 
-interface CubesProps {
-  gridSize?: number;
-  cubeSize?: number;
-  maxAngle?: number;
-  radius?: number;
-  easing?: string;
-  duration?: { enter: number; leave: number };
-  cellGap?: number | { col?: number; row?: number };
-  borderStyle?: string;
-  faceColor?: string;
-  shadow?: boolean | string;
-  autoAnimate?: boolean;
-  rippleOnClick?: boolean;
-  rippleColor?: string;
-  rippleSpeed?: number;
-}
-
 const Cubes = ({
   gridSize = 10,
   cubeSize,
@@ -26,7 +9,7 @@ const Cubes = ({
   radius = 3,
   easing = 'power3.out',
   duration = { enter: 0.3, leave: 0.6 },
-  cellGap = 5,
+  cellGap,
   borderStyle = '1px solid #fff',
   faceColor = '#060010',
   shadow = false,
@@ -34,7 +17,7 @@ const Cubes = ({
   rippleOnClick = true,
   rippleColor = '#fff',
   rippleSpeed = 2
-}: CubesProps) => {
+}) => {
   const sceneRef = useRef(null);
   const rafRef = useRef(null);
   const idleTimerRef = useRef(null);
@@ -43,8 +26,8 @@ const Cubes = ({
   const simTargetRef = useRef({ x: 0, y: 0 });
   const simRAFRef = useRef(null);
 
-  const colGap = typeof cellGap === 'number' ? `${cellGap}px` : typeof cellGap === 'object' && cellGap?.col !== undefined ? `${cellGap.col}px` : '5%';
-  const rowGap = typeof cellGap === 'number' ? `${cellGap}px` : typeof cellGap === 'object' && cellGap?.row !== undefined ? `${cellGap.row}px` : '5%';
+  const colGap = typeof cellGap === 'number' ? `${cellGap}px` : cellGap?.col !== undefined ? `${cellGap.col}px` : '5%';
+  const rowGap = typeof cellGap === 'number' ? `${cellGap}px` : cellGap?.row !== undefined ? `${cellGap.row}px` : '5%';
 
   const enterDur = duration.enter;
   const leaveDur = duration.leave;
