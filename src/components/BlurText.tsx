@@ -15,6 +15,7 @@ const BlurText = ({
   text = '',
   delay = 200,
   className = '',
+  childClassName = '',
   animateBy = 'words',
   direction = 'top',
   threshold = 0.1,
@@ -28,6 +29,7 @@ const BlurText = ({
   text?: string;
   delay?: number;
   className?: string;
+  childClassName?: string;
   animateBy?: 'words' | 'letters';
   direction?: 'top' | 'bottom';
   threshold?: number;
@@ -97,7 +99,7 @@ const BlurText = ({
 
         return (
           <motion.span
-            className="inline-block will-change-[transform,filter,opacity]"
+            className={`${childClassName} inline-block will-change-[transform,filter,opacity]`}
             key={index}
             initial={fromSnapshot}
             animate={inView ? animateKeyframes : fromSnapshot}

@@ -15,7 +15,8 @@ const Home = () => {
               <h1>
                 <BlurText 
                   text="Modern Mind Care"
-                  className="text-5xl lg:text-6xl font-bold leading-tight text-gradient-cosmic bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text"
+                  className="text-5xl lg:text-6xl font-bold leading-tight"
+                  childClassName="text-transparent text-gradient-cosmic bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text"
                   delay={150}
                   animateBy="words"
                 />
