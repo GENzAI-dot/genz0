@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.genz.app",
+    "sha256_cert_fingerprints": ["SHA-256: 7D:E0:41:5A:2A:6E:97:DC:1E:AE:9A:76:8A:9D:58:4A:4A:03:D6:D0:D4:6C:8A:28:17:AB:A5:E9:DF:62:69:1F"]
+  }
+}]
