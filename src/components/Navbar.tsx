@@ -6,6 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logo from "@/assets/logo.png";
 
 interface NavbarProps {
   showLogout?: boolean;
@@ -17,8 +18,8 @@ const Navbar = ({ showLogout = false, onLogout }: NavbarProps) => {
     <nav className="w-full bg-background/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-gradient-mystical rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-lg">✦</span>
+          <div className="w-8 h-8 rounded-lg overflow-hidden">
+            <img src={logo} alt="GenZ AI Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-gradient-cosmic">genZ</h1>
         </div>
