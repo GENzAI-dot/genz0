@@ -7,23 +7,35 @@ interface SplashScreenProps {
 }
 
 export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
-  const [progress, setProgress] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
+  const [progress, setProgress] = React.useState(0);
+  const [isComplete, setIsComplete] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
+    let mounted = true;
+    
     const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(timer);
-          setIsComplete(true);
-          setTimeout(onComplete, 500); // Brief delay before hiding splash
+          if (mounted) {
+            setIsComplete(true);
+            // Call onComplete after fade out animation
+            setTimeout(() => {
+              if (mounted) {
+                onComplete();
+              }
+            }, 500);
+          }
           return 100;
         }
         return prev + 2;
       });
-    }, 50);
+    }, 30); // Faster progress
 
-    return () => clearInterval(timer);
+    return () => {
+      mounted = false;
+      clearInterval(timer);
+    };
   }, [onComplete]);
 
   return (

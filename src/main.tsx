@@ -6,23 +6,18 @@ import './index.css'
 
 const Root = () => {
   const [showSplash, setShowSplash] = useState(true);
-  const [isAppReady, setIsAppReady] = useState(false);
 
   useEffect(() => {
-    // Simulate app initialization
+    // Set a timeout to hide splash screen after animation
     const timer = setTimeout(() => {
-      setIsAppReady(true);
-    }, 1000);
+      setShowSplash(false);
+    }, 3000); // Give enough time for the splash screen to complete
 
     return () => clearTimeout(timer);
   }, []);
 
-  const handleSplashComplete = () => {
-    setShowSplash(false);
-  };
-
-  if (showSplash && !isAppReady) {
-    return <SplashScreen onComplete={handleSplashComplete} />;
+  if (showSplash) {
+    return <SplashScreen onComplete={() => setShowSplash(false)} />;
   }
 
   return <App />;
