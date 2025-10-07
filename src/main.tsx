@@ -16,11 +16,14 @@ const Root = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  if (showSplash) {
-    return <SplashScreen onComplete={() => setShowSplash(false)} />;
-  }
-
-  return <App />;
+  return (
+    <>
+      <App />
+      {showSplash && (
+        <SplashScreen onComplete={() => setShowSplash(false)} />
+      )}
+    </>
+  );
 };
 
 createRoot(document.getElementById("root")!).render(<Root />);
