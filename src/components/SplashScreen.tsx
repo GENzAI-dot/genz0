@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import logo from '@/assets/logo.png';
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -33,12 +34,12 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
     )}>
       {/* App Logo */}
       <div className="mb-8 relative">
-        <div className="w-24 h-24 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center shadow-[var(--glow-mystical)] animate-pulse">
-          <span className="text-4xl font-bold text-primary-foreground">Z</span>
+        <div className="w-32 h-32 rounded-3xl flex items-center justify-center shadow-[var(--glow-mystical)] animate-pulse">
+          <img src={logo} alt="GenZ AI Logo" className="w-full h-full object-contain" />
         </div>
         
         {/* Cosmic rings animation */}
-        <div className="absolute inset-0 rounded-2xl border-2 border-primary/30 animate-ping"></div>
+        <div className="absolute inset-0 rounded-3xl border-2 border-primary/30 animate-ping"></div>
         <div className="absolute -inset-2 rounded-3xl border border-accent/20 animate-pulse"></div>
       </div>
 
