@@ -10,28 +10,27 @@
   :root {
     /* Core cosmic colors */
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 258 58% 15%;
     
-    /* Spiritual color palette */
-    --cosmic-purple: 260 60% 20%;
-    --cosmic-purple-light: 260 50% 40%;
-    --celestial-gold: 45 90% 60%;
-    --celestial-gold-light: 45 100% 75%;
-    --ethereal-blue: 220 70% 50%;
-    --ethereal-blue-light: 220 60% 70%;
+    /* Logo-inspired purple palette */
+    --cosmic-purple: 258 58% 25%;
+    --cosmic-purple-light: 270 70% 45%;
+    --neon-purple: 292 84% 61%;
+    --neon-pink: 300 80% 70%;
+    --deep-violet: 265 65% 20%;
     --mystical-white: 0 0% 98%;
-    --spirit-gray: 240 5% 96%;
+    --spirit-gray: 258 15% 96%;
     
-    /* Gradients */
-    --gradient-cosmic: linear-gradient(135deg, hsl(260 60% 20%), hsl(220 70% 50%));
-    --gradient-celestial: linear-gradient(135deg, hsl(45 90% 60%), hsl(45 100% 75%));
-    --gradient-ethereal: linear-gradient(180deg, hsl(0 0% 100%), hsl(240 5% 96%));
-    --gradient-mystical: linear-gradient(135deg, hsl(260 50% 40%), hsl(45 90% 60%));
+    /* Gradients - matching logo theme */
+    --gradient-cosmic: linear-gradient(135deg, hsl(258 58% 25%), hsl(292 84% 61%));
+    --gradient-celestial: linear-gradient(135deg, hsl(292 84% 61%), hsl(300 80% 70%));
+    --gradient-ethereal: linear-gradient(180deg, hsl(0 0% 100%), hsl(258 15% 96%));
+    --gradient-mystical: linear-gradient(135deg, hsl(270 70% 45%), hsl(292 84% 61%));
     
-    /* Shadows and glows */
-    --shadow-cosmic: 0 20px 50px -10px hsl(260 60% 20% / 0.3);
-    --shadow-celestial: 0 10px 30px -5px hsl(45 90% 60% / 0.2);
-    --glow-mystical: 0 0 40px hsl(260 50% 40% / 0.4);
+    /* Shadows and glows - purple themed */
+    --shadow-cosmic: 0 20px 50px -10px hsl(258 58% 25% / 0.3);
+    --shadow-celestial: 0 10px 30px -5px hsl(292 84% 61% / 0.3);
+    --glow-mystical: 0 0 40px hsl(292 84% 61% / 0.5);
     
     /* Animations */
     --transition-mystical: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -42,17 +41,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Spiritual semantic tokens */
-    --primary: 260 60% 20%;
+    /* Spiritual semantic tokens - logo colors */
+    --primary: 258 58% 25%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 45 90% 60%;
-    --secondary-foreground: 260 60% 20%;
+    --secondary: 292 84% 61%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 10% 60%;
+    --muted: 258 15% 96%;
+    --muted-foreground: 258 20% 50%;
 
-    --accent: 220 70% 50%;
+    --accent: 292 84% 61%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -82,26 +81,26 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 258 58% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 258 58% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 258 58% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 292 84% 61%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 270 70% 45%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 258 40% 20%;
+    --muted-foreground: 258 20% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 292 84% 61%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -174,7 +173,7 @@
   }
   
   .btn-celestial {
-    @apply bg-gradient-to-r from-secondary to-[hsl(var(--celestial-gold-light))] 
+    @apply bg-gradient-to-r from-secondary via-accent to-[hsl(var(--neon-pink))] 
            text-secondary-foreground shadow-[var(--shadow-celestial)]
            transition-[var(--transition-mystical)] hover:brightness-110;
   }
@@ -192,6 +191,6 @@
   }
   
   .text-gradient-celestial {
-    @apply bg-gradient-to-r from-secondary to-[hsl(var(--celestial-gold-light))] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-secondary to-[hsl(var(--neon-pink))] bg-clip-text text-transparent;
   }
 }

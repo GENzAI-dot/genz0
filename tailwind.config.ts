@@ -65,18 +65,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Spiritual color extensions
+				// Logo-inspired color extensions
 				cosmic: {
 					purple: 'hsl(var(--cosmic-purple))',
 					'purple-light': 'hsl(var(--cosmic-purple-light))',
 				},
-				celestial: {
-					gold: 'hsl(var(--celestial-gold))',
-					'gold-light': 'hsl(var(--celestial-gold-light))',
+				neon: {
+					purple: 'hsl(var(--neon-purple))',
+					pink: 'hsl(var(--neon-pink))',
 				},
-				ethereal: {
-					blue: 'hsl(var(--ethereal-blue))',
-					'blue-light': 'hsl(var(--ethereal-blue-light))',
+				deep: {
+					violet: 'hsl(var(--deep-violet))',
 				},
 				mystical: {
 					white: 'hsl(var(--mystical-white))',
