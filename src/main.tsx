@@ -1,5 +1,5 @@
+import React, { useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
-import { useState, useEffect } from 'react'
 import App from './App.tsx'
 import { SplashScreen } from './components/SplashScreen.tsx'
 import './index.css'
