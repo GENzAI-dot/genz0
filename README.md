@@ -1,5 +1,8 @@
 # Welcome to your Lovable project
 
+> 🚦 **Native Setup Source of Truth**
+> Before any native feature work, open **`DESPIA_README.md`**, then open the **Despia sitemap**, pick the feature page, and use the **latest Lovable Prompt** from that page.
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/902199c4-07ec-4b1d-b3f5-f420c74b71f7
