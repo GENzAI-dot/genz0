@@ -5,25 +5,28 @@ import { SplashScreen } from './components/SplashScreen.tsx'
 import './index.css'
 
 const Root = () => {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showSplash, setShowSplash] = React.useState(true);
 
-  useEffect(() => {
-    // Set a timeout to hide splash screen after animation
+  React.useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3000); // Give enough time for the splash screen to complete
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <>
+    <React.Fragment>
       <App />
       {showSplash && (
         <SplashScreen onComplete={() => setShowSplash(false)} />
       )}
-    </>
+    </React.Fragment>
   );
 };
 
-createRoot(document.getElementById("root")!).render(<Root />);
+createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <Root />
+  </React.StrictMode>
+);
