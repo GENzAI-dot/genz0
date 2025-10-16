@@ -4,7 +4,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Navbar from "@/components/Navbar";
 import { Sparkles, Star, Moon, Sun, HelpCircle } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
-import { DespiaDemo } from "@/components/DespiaDemo";
 const Dashboard = () => {
   const {
     signOut
@@ -100,11 +99,6 @@ const Dashboard = () => {
             </Button>
           </div>
           
-          {/* Despia Native Features Demo */}
-          <div className="animate-fade-in-up [animation-delay:1.4s] opacity-0 [animation-fill-mode:forwards]">
-            <DespiaDemo />
-          </div>
-
           {/* Help Section */}
           <div className="text-center space-y-6 animate-fade-in-up [animation-delay:1.6s] opacity-0 [animation-fill-mode:forwards]">
             <div className="space-y-4">
