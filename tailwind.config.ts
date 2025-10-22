@@ -22,66 +22,63 @@ export default {
 				poppins: ['Poppins', 'sans-serif'],
 			},
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
+				border: 'var(--border)',
+				input: 'var(--input)',
+				ring: 'var(--ring)',
+				background: 'var(--background)',
+				foreground: 'var(--foreground)',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: 'var(--primary)',
+					foreground: 'var(--primary-foreground)'
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
+					DEFAULT: 'var(--secondary)',
+					foreground: 'var(--secondary-foreground)'
 				},
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+					DEFAULT: 'var(--destructive)',
+					foreground: 'var(--destructive-foreground)'
 				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					DEFAULT: 'var(--muted)',
+					foreground: 'var(--muted-foreground)'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: 'var(--accent)',
+					foreground: 'var(--accent-foreground)'
 				},
 				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
+					DEFAULT: 'var(--popover)',
+					foreground: 'var(--popover-foreground)'
 				},
 				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					DEFAULT: 'var(--card)',
+					foreground: 'var(--card-foreground)'
 				},
 				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+					DEFAULT: 'var(--sidebar)',
+					foreground: 'var(--sidebar-foreground)',
+					primary: 'var(--sidebar-primary)',
+					'primary-foreground': 'var(--sidebar-primary-foreground)',
+					accent: 'var(--sidebar-accent)',
+					'accent-foreground': 'var(--sidebar-accent-foreground)',
+					border: 'var(--sidebar-border)',
+					ring: 'var(--sidebar-ring)'
 				},
-				// Logo-inspired color extensions
+				chart: {
+					'1': 'var(--chart-1)',
+					'2': 'var(--chart-2)',
+					'3': 'var(--chart-3)',
+					'4': 'var(--chart-4)',
+					'5': 'var(--chart-5)'
+				},
+				// Legacy cosmic colors
 				cosmic: {
-					purple: 'hsl(var(--cosmic-purple))',
-					'purple-light': 'hsl(var(--cosmic-purple-light))',
+					purple: 'var(--cosmic-purple)',
 				},
 				neon: {
-					purple: 'hsl(var(--neon-purple))',
-					pink: 'hsl(var(--neon-pink))',
-				},
-				deep: {
-					violet: 'hsl(var(--deep-violet))',
-				},
-				mystical: {
-					white: 'hsl(var(--mystical-white))',
-				},
-				spirit: {
-					gray: 'hsl(var(--spirit-gray))',
+					purple: 'var(--neon-purple)',
+					pink: 'var(--neon-pink)',
 				}
 			},
 			backgroundImage: {
