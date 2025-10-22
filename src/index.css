@@ -190,16 +190,15 @@
 }
 
 @layer components {
-  /* Spiritual button variants */
+  /* Button variants */
   .btn-cosmic {
     @apply bg-gradient-to-r from-primary to-accent text-primary-foreground 
-           shadow-[var(--shadow-cosmic)] relative overflow-hidden
+           shadow-lg relative overflow-hidden
            transition-all duration-300 ease-out;
   }
   
   .btn-cosmic:hover {
-    @apply shadow-[var(--glow-mystical)] scale-105;
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    @apply shadow-xl scale-105;
   }
   
   .btn-cosmic:active {
@@ -233,24 +232,24 @@
   }
   
   .btn-celestial {
-    @apply bg-gradient-to-r from-secondary via-accent to-[hsl(var(--neon-pink))] 
-           text-secondary-foreground shadow-[var(--shadow-celestial)]
-           transition-[var(--transition-mystical)] hover:brightness-110;
+    @apply bg-gradient-to-r from-secondary via-accent to-accent
+           text-secondary-foreground shadow-md
+           transition-all duration-300 hover:brightness-110;
   }
   
-  /* Mystical cards */
+  /* Cards */
   .card-mystical {
     @apply bg-gradient-to-br from-background to-muted backdrop-blur-sm
-           border border-border/50 shadow-[var(--shadow-cosmic)]
-           transition-[var(--transition-mystical)] hover:shadow-[var(--glow-mystical)];
+           border border-border shadow-md
+           transition-all duration-300 hover:shadow-lg;
   }
   
-  /* Ethereal text effects */
+  /* Text effects */
   .text-gradient-cosmic {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
   }
   
   .text-gradient-celestial {
-    @apply bg-gradient-to-r from-secondary to-[hsl(var(--neon-pink))] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent;
   }
 }
