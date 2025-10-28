@@ -38,7 +38,7 @@ const Dashboard = () => {
             <Card className="card-mystical text-center animate-scale-in [animation-delay:0.6s] opacity-0 [animation-fill-mode:forwards] hover:scale-105 transition-transform duration-300 group">
               <CardHeader>
                 <div className="w-12 h-12 bg-gradient-cosmic rounded-lg mx-auto flex items-center justify-center mb-2 group-hover:animate-float">
-                  <Star className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform" />
+                  <Star className="h-6 w-6 text-primary-foreground group-hover:scale-110 transition-transform bg-amber-500 rounded-xl" />
                 </div>
                 <CardTitle className="text-gradient-cosmic">Study & Exam Insights
 
