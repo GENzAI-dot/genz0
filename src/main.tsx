@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
+import { StrictMode } from 'react'
 import App from './App.tsx'
 import { SplashScreen } from './components/SplashScreen.tsx'
 import './index.css'
 
 const Root = () => {
-  const [showSplash, setShowSplash] = React.useState(true);
+  const [showSplash, setShowSplash] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
     }, 3000);
@@ -16,17 +17,17 @@ const Root = () => {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <App />
       {showSplash && (
         <SplashScreen onComplete={() => setShowSplash(false)} />
       )}
-    </React.Fragment>
+    </>
   );
 };
 
 createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
+  <StrictMode>
     <Root />
-  </React.StrictMode>
+  </StrictMode>
 );
