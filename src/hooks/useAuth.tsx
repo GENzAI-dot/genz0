@@ -27,7 +27,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       (event, session) => {
         if (!mounted) return;
         
-        console.log('Auth state change:', event, session?.user?.id);
+        if (import.meta.env.DEV) {
+          console.log('Auth state change:', event, session?.user?.id);
+        }
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
@@ -44,12 +46,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     // THEN check for existing session with timeout
     const checkSession = async () => {
       try {
-        console.log('Checking initial session...');
+        if (import.meta.env.DEV) {
+          console.log('Checking initial session...');
+        }
         const { data: { session } } = await supabase.auth.getSession();
         
         if (!mounted) return;
         
-        console.log('Initial session:', session?.user?.id || 'no session');
+        if (import.meta.env.DEV) {
+          console.log('Initial session:', session?.user?.id || 'no session');
+        }
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
@@ -66,7 +72,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     // Fallback timeout to prevent infinite loading
     const timeout = setTimeout(() => {
       if (mounted && loading) {
-        console.log('Auth timeout - setting loading to false');
+        if (import.meta.env.DEV) {
+          console.log('Auth timeout - setting loading to false');
+        }
         setLoading(false);
       }
     }, 5000);
