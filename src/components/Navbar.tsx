@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { LogOut, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 interface NavbarProps {
@@ -25,11 +26,23 @@ const Navbar = ({ showLogout = false, onLogout }: NavbarProps) => {
   return (
     <nav className="w-full bg-background/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <div className="w-8 h-8 rounded-lg overflow-hidden">
             <img src={logo} alt="GenZ AI Logo" className="w-full h-full object-contain" />
           </div>
           <h1 className="text-2xl font-bold text-gradient-cosmic">genZ</h1>
+        </Link>
+        
+        <div className="flex items-center gap-6">
+          <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">
+            About
+          </Link>
+          <Link to="/contact" className="text-sm font-medium hover:text-primary transition-colors">
+            Contact
+          </Link>
+          <Link to="/privacy" className="text-sm font-medium hover:text-primary transition-colors">
+            Privacy
+          </Link>
         </div>
         
         {showLogout && (
