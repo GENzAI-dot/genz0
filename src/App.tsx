@@ -1,5 +1,5 @@
 import React from "react";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { Toaster } from "@/components/ui/sonner";
@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Journey from "./pages/Journey";
 import NotFound from "./pages/NotFound";
 
-
+const queryClient = new QueryClient();
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -42,6 +42,7 @@ const PublicRoute = ({ children }: { children: React.ReactNode }) => {
 
 const App = () => {
   return (
+    <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <BrowserRouter>
           <Routes>
@@ -74,6 +75,7 @@ const App = () => {
         </BrowserRouter>
         <Toaster />
       </AuthProvider>
+    </QueryClientProvider>
   );
 };
 
