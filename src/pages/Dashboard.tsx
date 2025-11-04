@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
-import AdSense from "@/components/AdSense";
 import { Sparkles, Star, Moon, Sun, HelpCircle } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 const Dashboard = () => {
@@ -81,11 +80,6 @@ const Dashboard = () => {
                 <CardDescription>AI-guided coping techniques for stress, anxiety, and burnout, plus practical advice for a healthier mind.</CardDescription>
               </CardContent>
             </Card>
-          </div>
-          
-          {/* AdSense Ad */}
-          <div className="flex justify-center animate-fade-in-up [animation-delay:1.15s] opacity-0 [animation-fill-mode:forwards]">
-            <AdSense adSlot="1234567890" className="w-full max-w-4xl" />
           </div>
           
           {/* CTA Section */}

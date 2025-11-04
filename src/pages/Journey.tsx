@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import AdSense from "@/components/AdSense";
 import { useAuth } from "@/hooks/useAuth";
 const Journey = () => {
   const {
@@ -55,11 +54,6 @@ const Journey = () => {
               Your conversations are private and secure. Experience the wisdom of ancient traditions 
               enhanced by modern AI technology.
             </p>
-          </div>
-          
-          {/* AdSense Ad */}
-          <div className="mt-8 flex justify-center">
-            <AdSense adSlot="9876543210" className="w-full max-w-4xl" />
           </div>
         </div>
       </main>
