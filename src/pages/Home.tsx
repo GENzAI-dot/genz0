@@ -6,7 +6,8 @@ import PrototypeBadge from "@/components/PrototypeBadge";
 import cosmicHero from "@/assets/cosmic-hero.jpg";
 
 const Home = () => {
-  return <div className="min-h-screen bg-gradient-ethereal">
+  return (
+    <div className="min-h-screen bg-gradient-ethereal">
       <Navbar />
       <PrototypeBadge />
       
@@ -62,6 +63,8 @@ const Home = () => {
           </div>
         </div>
       </main>
-    </div>;
+    </div>
+  );
 };
+
 export default Home;

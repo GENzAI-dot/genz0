@@ -34,6 +34,161 @@
   animation: soft-highlight 3s ease-in-out infinite;
 }
 
+/* Floating up animation for flowers */
+@keyframes float-up {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-up {
+  animation: float-up 3s ease-out forwards;
+}
+
+/* Confetti burst animation */
+@keyframes confetti-burst {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--confetti-x, 0), var(--confetti-y, -100vh)) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-confetti-burst {
+  --confetti-x: calc((var(--tw-random, 0.5) - 0.5) * 200px);
+  --confetti-y: calc(-50vh - var(--tw-random, 0.5) * 50vh);
+  animation: confetti-burst 2s ease-out forwards;
+}
+
+/* Dim pulse for logout */
+@keyframes dim-pulse {
+  0% { opacity: 0; }
+  20% { opacity: 0.6; }
+  70% { opacity: 0.4; }
+  100% { opacity: 0; }
+}
+
+.animate-dim-pulse {
+  animation: dim-pulse 1.5s ease-in-out forwards;
+}
+
+/* Fade in out animation */
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0; }
+  30%, 70% { opacity: 1; }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 1.5s ease-in-out forwards;
+}
+
+/* Sad float animation */
+@keyframes sad-float {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -100%) scale(1.5) rotate(-20deg);
+  }
+  100% {
+    transform: translate(-50%, -150%) scale(0.5) rotate(20deg);
+    opacity: 0;
+  }
+}
+
+.animate-sad-float {
+  animation: sad-float 1.5s ease-out forwards;
+}
+
+/* Glow pulse for buttons */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out 0.2s;
+}
+
+/* Slow spin */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Slow ping */
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s ease-in-out infinite;
+}
+
+/* Slide in from right */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.5s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
 /* TweakCN Theme - Dark Matter (Dark Mode Only) */
 
 @layer base {
