@@ -4,17 +4,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { AlertCircle, Eye, EyeOff, Sparkles } from "lucide-react";
+import { Eye, EyeOff, Sparkles } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { CelebrationEffect, AuthButtonGlow } from "@/components/EmotionalEffects";
-import { motion } from "framer-motion";
 
 const AuthForm = () => {
-  const {
-    signIn,
-    signUp,
-    loading
-  } = useAuth();
+  const { signIn, signUp, loading } = useAuth();
   const [activeTab, setActiveTab] = useState("login");
   const [showPassword, setShowPassword] = useState(false);
   const [showCelebration, setShowCelebration] = useState(false);
@@ -41,15 +36,9 @@ const AuthForm = () => {
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors(prev => ({
-        ...prev,
-        [field]: ""
-      }));
+      setErrors(prev => ({ ...prev, [field]: "" }));
     }
   };
 
@@ -89,7 +78,6 @@ const AuthForm = () => {
       result = await signUp(formData.email, formData.password, formData.name);
     }
     
-    // Show celebration on success
     if (!result.error) {
       setShowCelebration(true);
     }
@@ -154,29 +142,23 @@ const AuthForm = () => {
               </CardContent>
               <CardFooter>
                 <AuthButtonGlow isActive={!loading}>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full"
+                  <Button 
+                    type="submit" 
+                    className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group hover:scale-[1.02] active:scale-[0.98]" 
+                    disabled={loading}
                   >
-                    <Button 
-                      type="submit" 
-                      className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group relative overflow-hidden" 
-                      disabled={loading}
-                    >
-                      {loading ? (
-                        <span className="flex items-center">
-                          <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
-                          Signing in...
-                        </span>
-                      ) : (
-                        <>
-                          <Sparkles className="mr-2 h-4 w-4 group-hover:animate-spin" />
-                          Sign In
-                        </>
-                      )}
-                    </Button>
-                  </motion.div>
+                    {loading ? (
+                      <span className="flex items-center">
+                        <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
+                        Signing in...
+                      </span>
+                    ) : (
+                      <>
+                        <Sparkles className="mr-2 h-4 w-4 group-hover:animate-spin" />
+                        Sign In
+                      </>
+                    )}
+                  </Button>
                 </AuthButtonGlow>
               </CardFooter>
             </form>
@@ -264,29 +246,23 @@ const AuthForm = () => {
               </CardContent>
               <CardFooter>
                 <AuthButtonGlow isActive={!loading}>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full"
+                  <Button 
+                    type="submit" 
+                    className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group hover:scale-[1.02] active:scale-[0.98]" 
+                    disabled={loading}
                   >
-                    <Button 
-                      type="submit" 
-                      className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group relative overflow-hidden" 
-                      disabled={loading}
-                    >
-                      {loading ? (
-                        <span className="flex items-center">
-                          <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
-                          Creating account...
-                        </span>
-                      ) : (
-                        <>
-                          <Sparkles className="mr-2 h-4 w-4 group-hover:animate-spin" />
-                          Create Account
-                        </>
-                      )}
-                    </Button>
-                  </motion.div>
+                    {loading ? (
+                      <span className="flex items-center">
+                        <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
+                        Creating account...
+                      </span>
+                    ) : (
+                      <>
+                        <Sparkles className="mr-2 h-4 w-4 group-hover:animate-spin" />
+                        Create Account
+                      </>
+                    )}
+                  </Button>
                 </AuthButtonGlow>
               </CardFooter>
             </form>
