@@ -4,9 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle, Eye, EyeOff } from "lucide-react";
+import { AlertCircle, Eye, EyeOff, Sparkles } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
+import { CelebrationEffect, AuthButtonGlow } from "@/components/EmotionalEffects";
+import { motion } from "framer-motion";
+
 const AuthForm = () => {
   const {
     signIn,
@@ -15,6 +17,7 @@ const AuthForm = () => {
   } = useAuth();
   const [activeTab, setActiveTab] = useState("login");
   const [showPassword, setShowPassword] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -22,10 +25,12 @@ const AuthForm = () => {
     confirmPassword: ""
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
+
   const validatePassword = (password: string) => {
     if (password.length < 8) return "Password must be at least 8 characters";
     if (!/(?=.*[a-z])/.test(password)) return "Password must contain lowercase letter";
@@ -34,12 +39,12 @@ const AuthForm = () => {
     if (!/(?=.*[@$!%*?&])/.test(password)) return "Password must contain special character";
     return "";
   };
+
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
-    // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({
         ...prev,
@@ -47,6 +52,7 @@ const AuthForm = () => {
       }));
     }
   };
+
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.email.trim()) {
@@ -71,18 +77,30 @@ const AuthForm = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
+    
+    let result;
     if (activeTab === "login") {
-      await signIn(formData.email, formData.password);
+      result = await signIn(formData.email, formData.password);
     } else {
-      await signUp(formData.email, formData.password, formData.name);
+      result = await signUp(formData.email, formData.password, formData.name);
+    }
+    
+    // Show celebration on success
+    if (!result.error) {
+      setShowCelebration(true);
     }
   };
-  return <div className="w-full max-w-md mx-auto">
+
+  return (
+    <div className="w-full max-w-md mx-auto">
+      <CelebrationEffect show={showCelebration} onComplete={() => setShowCelebration(false)} />
+      
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-2 mb-6 animate-scale-in">
+        <TabsList className="grid w-full grid-cols-2 mb-6 animate-scale-in highlight-pulse">
           <TabsTrigger value="login" className="transition-all duration-300 hover:scale-105">Login</TabsTrigger>
           <TabsTrigger value="signup" className="transition-all duration-300 hover:scale-105">Sign Up</TabsTrigger>
         </TabsList>
@@ -93,20 +111,41 @@ const AuthForm = () => {
               <CardTitle className="text-2xl text-center text-gradient-cosmic animate-shimmer bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text">
                 Welcome Back
               </CardTitle>
-              <CardDescription className="text-center text-muted-foreground animate-fade-in [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">Chat with your AI mentor </CardDescription>
+              <CardDescription className="text-center text-muted-foreground animate-fade-in [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
+                Chat with your AI mentor
+              </CardDescription>
             </CardHeader>
             <form onSubmit={handleSubmit}>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="your@email.com" value={formData.email} onChange={e => handleInputChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="your@email.com" 
+                    value={formData.email} 
+                    onChange={e => handleInputChange("email", e.target.value)} 
+                    className={errors.email ? "border-destructive" : ""} 
+                  />
                   {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="password">Password</Label>
                   <div className="relative">
-                    <Input id="password" type={showPassword ? "text" : "password"} value={formData.password} onChange={e => handleInputChange("password", e.target.value)} className={errors.password ? "border-destructive pr-10" : "pr-10"} />
-                    <Button type="button" variant="ghost" size="sm" className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent" onClick={() => setShowPassword(!showPassword)}>
+                    <Input 
+                      id="password" 
+                      type={showPassword ? "text" : "password"} 
+                      value={formData.password} 
+                      onChange={e => handleInputChange("password", e.target.value)} 
+                      className={errors.password ? "border-destructive pr-10" : "pr-10"} 
+                    />
+                    <Button 
+                      type="button" 
+                      variant="ghost" 
+                      size="sm" 
+                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent" 
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
                       {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </Button>
                   </div>
@@ -114,12 +153,31 @@ const AuthForm = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit" className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group" disabled={loading}>
-                  {loading ? <span className="flex items-center">
-                      <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
-                      Signing in...
-                    </span> : "Sign In"}
-                </Button>
+                <AuthButtonGlow isActive={!loading}>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full"
+                  >
+                    <Button 
+                      type="submit" 
+                      className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group relative overflow-hidden" 
+                      disabled={loading}
+                    >
+                      {loading ? (
+                        <span className="flex items-center">
+                          <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
+                          Signing in...
+                        </span>
+                      ) : (
+                        <>
+                          <Sparkles className="mr-2 h-4 w-4 group-hover:animate-spin" />
+                          Sign In
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
+                </AuthButtonGlow>
               </CardFooter>
             </form>
           </Card>
@@ -132,26 +190,52 @@ const AuthForm = () => {
                 Begin Your Journey
               </CardTitle>
               <CardDescription className="text-center text-muted-foreground animate-fade-in [animation-delay:0.2s] opacity-0 [animation-fill-mode:forwards]">
-                Your Journey , Your Profile
+                Your Journey, Your Profile
               </CardDescription>
             </CardHeader>
             <form onSubmit={handleSubmit}>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Full Name</Label>
-                  <Input id="name" type="text" placeholder="Your Name" value={formData.name} onChange={e => handleInputChange("name", e.target.value)} className={errors.name ? "border-destructive" : ""} />
+                  <Input 
+                    id="name" 
+                    type="text" 
+                    placeholder="Your Name" 
+                    value={formData.name} 
+                    onChange={e => handleInputChange("name", e.target.value)} 
+                    className={errors.name ? "border-destructive" : ""} 
+                  />
                   {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="signup-email">Email</Label>
-                  <Input id="signup-email" type="email" placeholder="your@email.com" value={formData.email} onChange={e => handleInputChange("email", e.target.value)} className={errors.email ? "border-destructive" : ""} />
+                  <Input 
+                    id="signup-email" 
+                    type="email" 
+                    placeholder="your@email.com" 
+                    value={formData.email} 
+                    onChange={e => handleInputChange("email", e.target.value)} 
+                    className={errors.email ? "border-destructive" : ""} 
+                  />
                   {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="signup-password">Password</Label>
                   <div className="relative">
-                    <Input id="signup-password" type={showPassword ? "text" : "password"} value={formData.password} onChange={e => handleInputChange("password", e.target.value)} className={errors.password ? "border-destructive pr-10" : "pr-10"} />
-                    <Button type="button" variant="ghost" size="sm" className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent" onClick={() => setShowPassword(!showPassword)}>
+                    <Input 
+                      id="signup-password" 
+                      type={showPassword ? "text" : "password"} 
+                      value={formData.password} 
+                      onChange={e => handleInputChange("password", e.target.value)} 
+                      className={errors.password ? "border-destructive pr-10" : "pr-10"} 
+                    />
+                    <Button 
+                      type="button" 
+                      variant="ghost" 
+                      size="sm" 
+                      className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent" 
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
                       {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </Button>
                   </div>
@@ -168,22 +252,49 @@ const AuthForm = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="confirm-password">Confirm Password</Label>
-                  <Input id="confirm-password" type="password" value={formData.confirmPassword} onChange={e => handleInputChange("confirmPassword", e.target.value)} className={errors.confirmPassword ? "border-destructive" : ""} />
+                  <Input 
+                    id="confirm-password" 
+                    type="password" 
+                    value={formData.confirmPassword} 
+                    onChange={e => handleInputChange("confirmPassword", e.target.value)} 
+                    className={errors.confirmPassword ? "border-destructive" : ""} 
+                  />
                   {errors.confirmPassword && <p className="text-sm text-destructive">{errors.confirmPassword}</p>}
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit" className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group" disabled={loading}>
-                  {loading ? <span className="flex items-center">
-                      <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
-                      Creating account...
-                    </span> : "Create Account"}
-                </Button>
+                <AuthButtonGlow isActive={!loading}>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full"
+                  >
+                    <Button 
+                      type="submit" 
+                      className="w-full btn-cosmic hover:animate-cosmic-pulse transition-all duration-300 group relative overflow-hidden" 
+                      disabled={loading}
+                    >
+                      {loading ? (
+                        <span className="flex items-center">
+                          <div className="w-4 h-4 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin mr-2"></div>
+                          Creating account...
+                        </span>
+                      ) : (
+                        <>
+                          <Sparkles className="mr-2 h-4 w-4 group-hover:animate-spin" />
+                          Create Account
+                        </>
+                      )}
+                    </Button>
+                  </motion.div>
+                </AuthButtonGlow>
               </CardFooter>
             </form>
           </Card>
         </TabsContent>
       </Tabs>
-    </div>;
+    </div>
+  );
 };
+
 export default AuthForm;

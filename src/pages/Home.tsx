@@ -2,10 +2,13 @@ import Navbar from "@/components/Navbar";
 import AuthForm from "@/components/AuthForm";
 import AdSense from "@/components/AdSense";
 import BlurText from "@/components/BlurText";
+import PrototypeBadge from "@/components/PrototypeBadge";
 import cosmicHero from "@/assets/cosmic-hero.jpg";
+
 const Home = () => {
   return <div className="min-h-screen bg-gradient-ethereal">
       <Navbar />
+      <PrototypeBadge />
       
       <main className="container mx-auto px-4 py-12">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
