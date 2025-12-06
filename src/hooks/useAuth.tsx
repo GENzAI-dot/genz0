@@ -102,41 +102,73 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     const redirectUrl = `${window.location.origin}/`;
     
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: redirectUrl,
-        data: name ? { full_name: name } : undefined
-      }
-    });
+    try {
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: redirectUrl,
+          data: name ? { full_name: name } : undefined
+        }
+      });
 
-    setLoading(false);
-    
-    if (error) {
-      toast.error(error.message);
-    } else {
-      toast.success('Check your email for the confirmation link!');
+      setLoading(false);
+      
+      if (error) {
+        if (error.message.includes('already registered')) {
+          toast.error('This email is already registered. Please sign in instead.');
+        } else {
+          toast.error(error.message);
+        }
+      } else {
+        toast.success('Account created successfully! You can now sign in.');
+      }
+      
+      return { error };
+    } catch (err: any) {
+      setLoading(false);
+      if (err.message === 'Failed to fetch' || err.name === 'TypeError') {
+        toast.error('Network error. Please check your connection and try again.');
+        return { error: { message: 'Network error. Please check your connection and try again.' } };
+      }
+      toast.error('An unexpected error occurred. Please try again.');
+      return { error: { message: 'An unexpected error occurred' } };
     }
-    
-    return { error };
   };
 
   const signIn = async (email: string, password: string) => {
     setLoading(true);
     
-    const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
 
-    setLoading(false);
-    
-    if (error) {
-      toast.error(error.message);
+      setLoading(false);
+      
+      if (error) {
+        // Handle specific error cases
+        if (error.message === 'Invalid login credentials') {
+          toast.error('Invalid email or password. Please try again.');
+        } else if (error.message.includes('Email not confirmed')) {
+          toast.error('Please confirm your email before signing in.');
+        } else {
+          toast.error(error.message);
+        }
+      }
+      
+      return { error };
+    } catch (err: any) {
+      setLoading(false);
+      // Handle network errors
+      if (err.message === 'Failed to fetch' || err.name === 'TypeError') {
+        toast.error('Network error. Please check your connection and try again.');
+        return { error: { message: 'Network error. Please check your connection and try again.' } };
+      }
+      toast.error('An unexpected error occurred. Please try again.');
+      return { error: { message: 'An unexpected error occurred' } };
     }
-    
-    return { error };
   };
 
   const signOut = async () => {
